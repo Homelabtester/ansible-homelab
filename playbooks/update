@@ -1,6 +1,12 @@
-- hosts: all
+- name: Update all servers
+  hosts: all
   become: yes
+
   tasks:
-    - apt:
+    - name: Update apt cache
+      apt:
         update_cache: yes
+
+    - name: Upgrade all packages
+      apt:
         upgrade: dist
